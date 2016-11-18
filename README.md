@@ -20,6 +20,9 @@ cd ui
 npm install
 node server.js
 ```
+Pro tips:
+- [Download React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+- Download a JSON viewing chrome extension
 
 (For those interested) - To run this API inside a Docker container:
 - install docker and docker-compose
