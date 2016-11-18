@@ -1,0 +1,27 @@
+version: '2'
+networks:
+ internal:
+
+services:
+  api:
+    image: "pr.indexexchange.com:5000/hackathon.api$APIVER"
+    build:
+      context: api/
+      dockerfile: docker/Dockerfile
+    networks: 
+      internal:
+          aliases:
+            - api
+    restart: "always"
+  nginx:
+    image: "pr.indexexchange.com:5000/hackathon.nginx$NGINXVER"
+    build:
+      context: nginx/
+      dockerfile: docker/Dockerfile
+    networks:
+      internal:
+        aliases:
+          - nginx
+    ports:
+      - "8123:8000"
+    restart: "always"

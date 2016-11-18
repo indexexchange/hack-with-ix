@@ -1,0 +1,44 @@
+{
+    "middleware": {
+        "session": {
+            "enabled": true
+        },
+
+        "parseURLEncoded": {
+            "enabled": true,
+            "priority": 30,
+            "module": {
+                "name": "body-parser",
+                "method": "urlencoded",
+                "arguments": [
+                    { "extended": true }
+                ]
+            }
+        },
+
+        "responseLogger": {
+            "enabled": true,
+            "priority": 20,
+            "module": {
+                "name": "path:./lib/handle-response.js"
+            }
+        },
+
+        "errorHandler": {
+            "enabled": true,
+            "priority": 200,
+            "module": {
+                "name": "path:./lib/handle-error.js"
+            }
+        },
+
+        "router": {
+            "enabled": true,
+            "priority": 50,
+            "route": "/",
+            "module": {
+                "arguments": [{ "directory": "path:./controllers" }]
+            }
+        }
+    }
+}

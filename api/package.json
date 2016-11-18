@@ -1,0 +1,36 @@
+{
+  "name": "hack-with-ix-api",
+  "version": "0.1.0",
+  "description": "Hack with IX API server container",
+  "repository": "https://github.com/indexexchange/hack-with-ix.git",
+  "license": "MIT",
+  "author": "edward.wright@indexexchange.com, geoff.bremner@indexexchange.com, stefan.panait@indexexchange.com",
+  "main": "server.js",
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt build",
+    "all": "npm run build && npm run test"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    }
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "kraken-js": "^2.1.0",
+    "on-headers": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.2",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-config-dir": "^0.3.2",
+    "grunt-copy-to": "0.0.12",
+    "grunt-eslint": "^19.0.0",
+    "grunt-mocha-cli": "^3.0.0",
+    "mocha": "^3.1.2",
+    "supertest": "^2.0.1"
+  }
+}
