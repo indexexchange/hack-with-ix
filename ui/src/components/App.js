@@ -15,7 +15,7 @@ export default class App extends Component {
   render () {
     return (
       <Center>
-        <h1>Hello there. Let's get started.</h1>
+        <h1>Hello there! Time to get started.</h1>
       </Center>
     )
   }
