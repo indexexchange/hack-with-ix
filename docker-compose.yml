@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  api:
+    image: "ixhackathon/api"
+    build:
+      context: api/
+      dockerfile: docker/Dockerfile
+    restart: "always"
+    volumes:
+      - "./api/:/src/"
+    ports:
+      - "8000:8000"
