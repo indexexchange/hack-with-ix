@@ -1,7 +1,8 @@
-This repository contains the API container for #HackWithIX
+This repository contains the API and UI containers for #HackWithIX
+
 
 To run this API directly on your laptop:
-- install node.js 6.9 and npm
+- install node.js 6.9 (npm is a part of that)
 - clone the repository
 - change directory to the repository root, then:
 
@@ -11,7 +12,16 @@ npm install
 node server.js
 ```
 
-To run this API inside a Docker container:
+To run the UI directly on your laptop:
+- install node.js 6.x (npm is a part of that)
+
+```
+cd ui
+npm install
+node server.js
+```
+
+(For those interested) - To run this API inside a Docker container:
 - install docker and docker-compose
 - clone this repository
 - change directory to the repository root, then:
