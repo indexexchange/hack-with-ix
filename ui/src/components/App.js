@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Navbar from './Navbar'
 import configs from './configs'
+import Body from './Body'
 
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
     return (
       <div className="App" style={style}>
         <Navbar />
+        <Body />
       </div>
     );
   }

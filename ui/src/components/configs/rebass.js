@@ -10,7 +10,7 @@ const dark = {
   name: 'Dark',
   fontFamily: '"Avenir Next", Helvetica, sans-serif',
   color: '#eee',
-  backgroundColor: '#111',
+  backgroundColor: '#333344',
   borderRadius: 5,
   borderColor: `rgba(255, 255, 255, ${1/16})`,
 
