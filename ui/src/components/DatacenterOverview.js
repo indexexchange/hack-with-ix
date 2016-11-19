@@ -27,11 +27,6 @@ function ServerStatus(props) {
 }
 
 function DatacenterOverview(props) {
-    const servers = [
-        {},
-        {},
-        {},
-    ]
     return <Panel style={{
         margin: 30,
     }}>
@@ -46,7 +41,7 @@ function DatacenterOverview(props) {
         </Box>
         <Box sm={3}>
         <Flex direction="row" wrap>
-            {servers.map((server) => <ServerStatus server={server} />)}
+            {props.servers.map((server) => <ServerStatus server={server} />)}
         </Flex>
         </Box>
     </Flex>

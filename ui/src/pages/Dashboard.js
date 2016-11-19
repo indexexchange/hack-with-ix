@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash'
 
 import { Flex, Box } from 'reflexbox'
 import { Container, Heading } from 'rebass'
@@ -9,12 +10,26 @@ import DatacenterOverview from '../components/DatacenterOverview'
 function getApiData(url) {
   return fetch(url)
   .then((response) => {
-    return response.json().data;
-  });
+    return response.json();
+  })
+  .then((payload) => payload.data);
 }
 
 function getServers() {
   return getApiData('http://localhost:8000/servers');
+}
+
+function groupByDatacenter(servers) {
+  return _.chain(servers)
+  .groupBy('dc')
+  .map((value, key) => {
+    return {
+      name: key,
+      servers: value,
+    }
+  })
+  .sortBy('name')
+  .value();
 }
 
 class App extends Component {
@@ -31,7 +46,7 @@ class App extends Component {
     getServers()
     .then((servers) => {
       this.setState({
-        servers: servers,
+        servers: groupByDatacenter(servers),
       })
     })
   }
@@ -43,11 +58,14 @@ class App extends Component {
           <Flex align="center" justify="space-around">
             <Heading level={1}>Servers</Heading>
           </Flex>
-          <Flex>
-            <DatacenterOverview dc="EU" />
-            <DatacenterOverview dc="NA" />
-            <DatacenterOverview dc="AS" />
-          </Flex>
+            { !this.state.servers ?
+              <p>Loading ...</p> :
+              <Flex>
+                {this.state.servers.map((datacenter) => {
+                  return <DatacenterOverview dc={datacenter.name} servers={datacenter.servers} />
+                })}
+              </Flex>
+            }
         </Container>
       </Page>
     );
