@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Navbar from './components/Navbar'
+import Navbar from './Navbar'
 import configs from './configs'
 
 
@@ -38,7 +38,6 @@ class App extends Component {
     return (
       <div className="App" style={style}>
         <Navbar />
-        <Banner />
       </div>
     );
   }
