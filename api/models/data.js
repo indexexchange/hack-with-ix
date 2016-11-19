@@ -6,6 +6,16 @@ var data    = require('../data/data.json'),
     ads     = data.adstats,
     LAG     = 60 * 5 * 1000;
 
+// byDate returns a filter function
+// that can be used to filter a list of objects with `.timestamp` attributes
+function byDate(from, to) {
+    return (data) => {
+        return data.timestamp >= from
+            && data.timestamp <= to
+            && data.timestamp < now;
+    };
+}
+
 module.exports = {
     getServerData: function getServerData() {
         var now = Date.now(),
@@ -21,11 +31,7 @@ module.exports = {
 
         if (!perf[dc] || !perf[dc][server]) { return []; }
 
-        return perf[dc][server].filter((data) => {
-            return data.timestamp >= from
-                && data.timestamp <= to
-                && data.timestamp < now;
-        });
+        return perf[dc][server].filter(byDate(from, to));
     },
 
     getAdsData: function getAdsData(dc, from, to) {
@@ -33,10 +39,6 @@ module.exports = {
 
         if (!ads[dc]) { return []; }
 
-        return ads[dc].filter((data) => {
-            return data.timestamp >= from
-                && data.timestamp <= to
-                && data.timestamp < now;
-        });
+        return ads[dc].filter(byDate(from, to));
     },
 };
