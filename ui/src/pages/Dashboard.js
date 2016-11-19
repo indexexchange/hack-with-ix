@@ -48,6 +48,12 @@ function Datacenters(props) {
   </Flex>
 }
 
+function Title(props) {
+  return <Flex align="center" justify="space-around">
+    <Heading level={1}>{props.children}</Heading>
+  </Flex>
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -71,9 +77,7 @@ class App extends Component {
     return (
       <Page>
         <Container>
-          <Flex align="center" justify="space-around">
-            <Heading level={1}>Servers</Heading>
-          </Flex>
+          <Title>Servers</Title>
           <Datacenters datacenters={this.state.datacenters} />
         </Container>
       </Page>
