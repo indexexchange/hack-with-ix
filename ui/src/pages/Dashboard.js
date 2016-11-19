@@ -15,8 +15,11 @@ function getApiData(url) {
   .then((payload) => payload.data);
 }
 
-function getServers() {
-  return getApiData('http://localhost:8000/servers');
+function getDatacenters() {
+  return getApiData('http://localhost:8000/servers')
+  .then((servers) => {
+    return groupByDatacenter(servers);
+  });
 }
 
 function groupByDatacenter(servers) {
@@ -32,21 +35,34 @@ function groupByDatacenter(servers) {
   .value();
 }
 
+function Datacenters(props) {
+  const dcs = props.datacenters;
+  if(!dcs || dcs.length < 1) {
+    return <p>Loading ...</p>;
+  }
+
+  return <Flex>
+    {dcs.map((datacenter) => {
+      return <DatacenterOverview dc={datacenter.name} servers={datacenter.servers} />
+    })}
+  </Flex>
+}
+
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      servers: null,
+      datacenters: null,
     };
-    this.loadServers();
+    this.loadDatacenters();
   }
 
-  loadServers() {
-    getServers()
-    .then((servers) => {
+  loadDatacenters() {
+    getDatacenters()
+    .then((datacenters) => {
       this.setState({
-        servers: groupByDatacenter(servers),
+        datacenters: datacenters,
       })
     })
   }
@@ -58,14 +74,7 @@ class App extends Component {
           <Flex align="center" justify="space-around">
             <Heading level={1}>Servers</Heading>
           </Flex>
-            { !this.state.servers ?
-              <p>Loading ...</p> :
-              <Flex>
-                {this.state.servers.map((datacenter) => {
-                  return <DatacenterOverview dc={datacenter.name} servers={datacenter.servers} />
-                })}
-              </Flex>
-            }
+          <Datacenters datacenters={this.state.datacenters} />
         </Container>
       </Page>
     );
