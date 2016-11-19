@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash'
 
 import { Flex, Box } from 'reflexbox'
-import { Container, Heading } from 'rebass'
+import { Container, Heading, Space } from 'rebass'
 
 import Page from './Page'
 import DatacenterOverview from '../components/DatacenterOverview'
@@ -50,7 +50,7 @@ function Datacenters(props) {
 
 function Title(props) {
   return <Flex align="center" justify="space-around">
-    <Heading level={1}>{props.children}</Heading>
+    <Heading style={{marginBottom: 20, marginTop: 30}} level={1}>{props.children}</Heading>
   </Flex>
 }
 
@@ -79,6 +79,12 @@ class App extends Component {
         <Container>
           <Title>Servers</Title>
           <Datacenters datacenters={this.state.datacenters} />
+        </Container>
+        <Container>
+          <Title>Ads</Title>
+          {
+            // TODO
+          }
         </Container>
       </Page>
     );
