@@ -7,7 +7,7 @@ import Body from '../components/Body'
 import GetStarted from '../components/GetStarted'
 
 
-class App extends Component {
+class Presentation extends Component {
   static childContextTypes = {
     rebass: React.PropTypes.object
   }
@@ -29,7 +29,7 @@ class App extends Component {
       backgroundColor
     } = configs.rebass;
 
-    // App style
+    // Presentation style
     const style = {
       fontFamily,
       fontWeight,
@@ -39,13 +39,13 @@ class App extends Component {
     };
 
     return (
-      <div className="App" style={style}>
+      <div className="Presentation" style={style}>
         <Navbar />
-        <Body />
-
+        <Banner />
+        <GetStarted />
       </div>
     );
   }
 }
 
-export default App;
+export default Presentation;
