@@ -7,16 +7,28 @@ import React, { Component } from 'react'
 import { Center } from 'components/Flex'
 
 
-export default class App extends Component {
+export default class Form extends Component {
   constructor () {
     super()
   }
+  
 
   render () {
     return (
-      (<Center>
+      <Center>
         <h1>Hello there! Time to get started.</h1>
-      </Center>)
+      </Center>
     )
   }
+}
+
+class Bar extends Component {
+	constructor () {
+    super()
+  }
+  
+  render () {
+  	return (
+  	
+  	)
 }

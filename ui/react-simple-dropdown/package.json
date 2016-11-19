@@ -1,0 +1,104 @@
+{
+  "name": "react-simple-dropdown",
+  "version": "1.1.5",
+  "description": "Non-prescriptive React.js dropdown toolkit",
+  "main": "lib/components/Dropdown.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "npm run build && zuul -- test/**/*.{js,jsx}",
+    "test:browser": "zuul --local 55555 -- test/**/*.{js,jsx}",
+    "build": "babel src/components --out-dir lib/components",
+    "watch": "npm run build -- -w",
+    "dev": "npm-run-all --parallel watch test:browser",
+    "clean": "trash lib",
+    "docs:build": "npm-run-all -p docs:build:*",
+    "docs:build:css": "lessc src/docs/index.less docs/index.css",
+    "docs:build:js": "browserify -t [ babelify ] -t [ brfs ] --extension=.jsx src/docs/index.jsx --outfile docs/index.js",
+    "docs:build:html": "ncp src/docs/index.html docs/index.html",
+    "docs:watch": "npm-run-all -p docs:watch:*",
+    "docs:watch:css": "autoless src/docs/ docs/",
+    "docs:watch:js": "watchify -t [ babelify ] -t [ brfs ] --extension=.jsx src/docs/index.jsx --outfile docs/index.js -v",
+    "docs:watch:html": "sane 'npm run docs:build:html' src/docs/ --glob='index.html'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fauntleroy/react-simple-dropdown.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "component",
+    "dropdown"
+  ],
+  "author": {
+    "name": "Timothy Kempf",
+    "email": "tim@kemp59f.info",
+    "url": "http://kempfffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.info"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fauntleroy/react-simple-dropdown/issues"
+  },
+  "homepage": "https://github.com/Fauntleroy/react-simple-dropdown",
+  "dependencies": {
+    "classnames": "^2.1.2"
+  },
+  "devDependencies": {
+    "autoless": "^0.1.7",
+    "babel": "6.5.2",
+    "babel-cli": "6.10.1",
+    "babel-preset-es2016": "6.0.11",
+    "babel-preset-react": "6.5.0",
+    "babel-preset-stage-0": "6.5.0",
+    "babelify": "^7.3.0",
+    "brfs": "^1.4.3",
+    "browserify": "^13.1.0",
+    "dom-classes": "0.0.1",
+    "highlight.js": "^9.6.0",
+    "less": "^2.7.1",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^1.4.0",
+    "react": "15.0.x",
+    "react-addons-test-utils": "15.0.x",
+    "react-dom": "15.0.x",
+    "react-highlight": "^0.9.0",
+    "sane": "^1.4.1",
+    "simple-mock": "^0.3.1",
+    "tape": "^4.0.0",
+    "trash-cli": "^1.2.0",
+    "watchify": "^3.7.0",
+    "zuul": "^3.10.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  },
+  "gitHead": "2a1109e3e8aa3b39cf7f25dba0a1d774cbbbda53",
+  "_id": "react-simple-dropdown@1.1.5",
+  "_shasum": "f0d682029e0e942d54b85e5cab2949ca43016de6",
+  "_from": "react-simple-dropdown@latest",
+  "_npmVersion": "3.9.3",
+  "_nodeVersion": "6.2.1",
+  "_npmUser": {
+    "name": "fauntleroy",
+    "email": "the.kaempfer@gmail.com"
+  },
+  "dist": {
+    "shasum": "f0d682029e0e942d54b85e5cab2949ca43016de6",
+    "tarball": "https://registry.npmjs.org/react-simple-dropdown/-/react-simple-dropdown-1.1.5.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "fauntleroy",
+      "email": "tim@sparkart.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-simple-dropdown-1.1.5.tgz_1479323289020_0.9271860388107598"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/react-simple-dropdown/-/react-simple-dropdown-1.1.5.tgz"
+}

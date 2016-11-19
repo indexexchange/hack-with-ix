@@ -5,7 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 import App from 'components/App'
 import Servers from 'components/Servers'
-
+import Container from 'components/Container'
 let routes =
   <Router
     history = { createBrowserHistory() }
@@ -19,6 +19,12 @@ let routes =
       path = "/servers"
       component = { Servers }
     />
+    
+    
+    <Route
+	  path = "/container"
+	  component = { Container }
+	/>
   </Router>
 
 render(routes, document.getElementById(`root`))
