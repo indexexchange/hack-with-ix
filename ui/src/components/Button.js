@@ -6,13 +6,17 @@
 
 import React, { Component } from 'react'
 
+
+
 // Components
 
 import { Center } from 'components/Flex'
 import { Row } from 'components/Flex'
+import { Button } from 'react-bootstrap';
 
 
-export class Button extends Component {
+
+export class ButtonMain extends Component {
   constructor () {
     super()
   }
@@ -41,7 +45,7 @@ export class Button extends Component {
 
     return (
       <div >
-        <button type="button" style={buttonStyle} onClick={ () => {this.props.changeState(this.props.say)}}>{this.props.say}</button>
+        <button type="button" className="btn btn-default"  onClick={ () => {this.props.changeState(this.props.say)}}>{this.props.say}</button>
       </div>    
     )
   }
@@ -64,7 +68,7 @@ export class HandleButton extends Component {
 
   renderButton(input, condition){
     if(condition == true)
-    return <Button say={input} changeState={this.changeState.bind(this)}/>
+    return <ButtonMain say={input} changeState={this.changeState.bind(this)}/>
 
 
 
