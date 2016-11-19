@@ -12,23 +12,23 @@ const STATUS_COLORS = {
     "GREY":     "grey",
 };
 
-
-
 function ServerStatus(props) {
     const color = STATUS_COLORS[props.server.status] || "grey";
 
     return <div style={{
         display: "inline-block",
         backgroundColor: color,
-        height: 30,
-        width: 100,
+        minHeight: 30,
+        minWidth: 80,
+        maxHeight: 30,
+        maxWidth: 80,
         margin: 10,
     }} />
 }
 
 function DatacenterOverview(props) {
     return <Panel style={{
-        margin: 30,
+        margin: 10,
     }}>
     <Flex>
         <Box sm={3}>
@@ -40,7 +40,7 @@ function DatacenterOverview(props) {
         </Flex>
         </Box>
         <Box sm={3}>
-        <Flex direction="row" wrap>
+        <Flex flexAuto direction="row" wrap>
             {props.servers.map((server) => <ServerStatus server={server} />)}
         </Flex>
         </Box>
