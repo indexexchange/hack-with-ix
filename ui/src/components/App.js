@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 // Components
 
 import { Center } from 'components/Flex'
-
+// import { Impressions } from './Servers.js'
 
 export default class App extends Component {
   constructor () {
@@ -14,9 +14,9 @@ export default class App extends Component {
 
   render () {
     return (
-      <Center>
+      <div>
         <h1>Hello there! Time to get started.</h1>
-      </Center>
+      </div>
     )
   }
 }
