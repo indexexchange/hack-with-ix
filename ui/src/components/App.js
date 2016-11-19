@@ -1,22 +1,47 @@
-// Dependencies
+import React, { Component } from 'react';
 
-import React, { Component } from 'react'
-
-// Components
-
-import { Center } from 'components/Flex'
+import Navbar from './components/Navbar'
+import configs from './configs'
 
 
-export default class App extends Component {
-  constructor () {
-    super()
+class App extends Component {
+  static childContextTypes = {
+    rebass: React.PropTypes.object
   }
 
-  render () {
+  getChildContext () {
+    return {
+      rebass: configs.rebass,
+    }
+  }
+
+  render() {
+
+    // Design config values
+    const {
+      fontFamily,
+      fontWeight,
+      letterSpacing,
+      color,
+      backgroundColor
+    } = configs.rebass;
+
+    // App style
+    const style = {
+      fontFamily,
+      fontWeight,
+      letterSpacing,
+      color,
+      backgroundColor
+    };
+
     return (
-      <Center>
-        <h1>Hello there! Time to get started.</h1>
-      </Center>
-    )
+      <div className="App" style={style}>
+        <Navbar />
+        <Banner />
+      </div>
+    );
   }
 }
+
+export default App;

@@ -48,7 +48,7 @@ class UnitImpressionsListView extends Component {
 		          	} else {
 		          		data[impression.format] = 0
 		          	}
-	          	}  
+	          	}
 	          )}
 	        </ol>
 
