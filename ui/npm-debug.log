@@ -1,0 +1,193 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose readDependencies loading dependencies from /Users/JanaMano/Desktop/hack-with-ix/ui/package.json
+5 warn package.json webpack-starter@1.0.0 No description
+6 warn package.json webpack-starter@1.0.0 No repository field.
+7 warn package.json webpack-starter@1.0.0 No README data
+8 verbose install where, deps [ '/Users/JanaMano/Desktop/hack-with-ix/ui',
+8 verbose install   [ 'history',
+8 verbose install     'radium',
+8 verbose install     'react',
+8 verbose install     'react-button',
+8 verbose install     'react-dom',
+8 verbose install     'react-native',
+8 verbose install     'react-router',
+8 verbose install     'socket.io-client',
+8 verbose install     'babel-core',
+8 verbose install     'babel-loader',
+8 verbose install     'babel-preset-es2015',
+8 verbose install     'babel-preset-react',
+8 verbose install     'babel-preset-stage-0',
+8 verbose install     'babel-register',
+8 verbose install     'chai',
+8 verbose install     'enzyme',
+8 verbose install     'mocha',
+8 verbose install     'react-addons-test-utils',
+8 verbose install     'react-hot-loader',
+8 verbose install     'webpack',
+8 verbose install     'webpack-dev-server' ] ]
+9 verbose install where, peers [ '/Users/JanaMano/Desktop/hack-with-ix/ui', [] ]
+10 verbose installManyTop reading for lifecycle /Users/JanaMano/Desktop/hack-with-ix/ui/package.json
+11 info preinstall webpack-starter@1.0.0
+12 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-core/package.json
+13 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-loader/package.json
+14 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-es2015/package.json
+15 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-react/package.json
+16 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-stage-0/package.json
+17 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-register/package.json
+18 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/chai/package.json
+19 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/enzyme/package.json
+20 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/history/package.json
+21 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/mocha/package.json
+22 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/npm-debug.log/package.json
+23 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/radium/package.json
+24 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react/package.json
+25 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-addons-test-utils/package.json
+26 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-button/package.json
+27 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-dom/package.json
+28 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-hot-loader/package.json
+29 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-materialize/package.json
+30 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-native/package.json
+31 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-router/package.json
+32 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-simple-dropdown/package.json
+33 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/socket.io-client/package.json
+34 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/webpack/package.json
+35 verbose installManyTop reading scoped package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/webpack-dev-server/package.json
+36 info package.json react-native@0.37.0 No README data
+37 verbose readDependencies loading dependencies from /Users/JanaMano/Desktop/hack-with-ix/ui/package.json
+38 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-core/package.json
+39 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-loader/package.json
+40 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-es2015/package.json
+41 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-react/package.json
+42 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-preset-stage-0/package.json
+43 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/babel-register/package.json
+44 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/chai/package.json
+45 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/enzyme/package.json
+46 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/history/package.json
+47 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/mocha/package.json
+48 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/npm-debug.log/package.json
+49 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/radium/package.json
+50 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react/package.json
+51 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-addons-test-utils/package.json
+52 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-button/package.json
+53 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-dom/package.json
+54 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-hot-loader/package.json
+55 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-materialize/package.json
+56 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-native/package.json
+57 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-router/package.json
+58 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-simple-dropdown/package.json
+59 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/socket.io-client/package.json
+60 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/webpack/package.json
+61 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/webpack-dev-server/package.json
+62 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/.bin/mocha/package.json
+63 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/.bin/react-native/package.json
+64 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/.bin/webpack/package.json
+65 verbose targetResolver reading package data from /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/.bin/webpack-dev-server/package.json
+66 verbose already installed skipping react-addons-test-utils@^0.14.3 /Users/JanaMano/Desktop/hack-with-ix/ui
+67 verbose already installed skipping react-hot-loader@^1.3.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+68 verbose already installed skipping webpack@^1.12.9 /Users/JanaMano/Desktop/hack-with-ix/ui
+69 verbose already installed skipping webpack-dev-server@^1.12.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+70 verbose already installed skipping history@^1.17.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+71 verbose already installed skipping radium@^0.15.3 /Users/JanaMano/Desktop/hack-with-ix/ui
+72 verbose already installed skipping react@^0.14.3 /Users/JanaMano/Desktop/hack-with-ix/ui
+73 verbose already installed skipping react-button@^1.2.1 /Users/JanaMano/Desktop/hack-with-ix/ui
+74 verbose already installed skipping react-dom@^0.14.3 /Users/JanaMano/Desktop/hack-with-ix/ui
+75 verbose already installed skipping react-native@^0.37.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+76 verbose already installed skipping react-router@^1.0.2 /Users/JanaMano/Desktop/hack-with-ix/ui
+77 verbose already installed skipping socket.io-client@^1.3.7 /Users/JanaMano/Desktop/hack-with-ix/ui
+78 verbose already installed skipping babel-core@^6.3.17 /Users/JanaMano/Desktop/hack-with-ix/ui
+79 verbose already installed skipping babel-loader@^6.2.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+80 verbose already installed skipping babel-preset-es2015@^6.3.13 /Users/JanaMano/Desktop/hack-with-ix/ui
+81 verbose already installed skipping babel-preset-react@^6.3.13 /Users/JanaMano/Desktop/hack-with-ix/ui
+82 verbose already installed skipping babel-preset-stage-0@^6.3.13 /Users/JanaMano/Desktop/hack-with-ix/ui
+83 verbose already installed skipping babel-register@^6.3.13 /Users/JanaMano/Desktop/hack-with-ix/ui
+84 verbose already installed skipping chai@^3.4.1 /Users/JanaMano/Desktop/hack-with-ix/ui
+85 verbose already installed skipping enzyme@^1.2.0 /Users/JanaMano/Desktop/hack-with-ix/ui
+86 verbose already installed skipping mocha@^2.3.4 /Users/JanaMano/Desktop/hack-with-ix/ui
+87 silly install resolved []
+88 info build /Users/JanaMano/Desktop/hack-with-ix/ui
+89 info linkStuff webpack-starter@1.0.0
+90 silly linkStuff webpack-starter@1.0.0 has /Users/JanaMano/Desktop/hack-with-ix as its parent node_modules
+91 verbose linkBins webpack-starter@1.0.0
+92 verbose linkMans webpack-starter@1.0.0
+93 verbose rebuildBundles webpack-starter@1.0.0
+94 verbose rebuildBundles [ '.DS_Store',
+94 verbose rebuildBundles   '.bin',
+94 verbose rebuildBundles   'babel-core',
+94 verbose rebuildBundles   'babel-loader',
+94 verbose rebuildBundles   'babel-preset-es2015',
+94 verbose rebuildBundles   'babel-preset-react',
+94 verbose rebuildBundles   'babel-preset-stage-0',
+94 verbose rebuildBundles   'babel-register',
+94 verbose rebuildBundles   'chai',
+94 verbose rebuildBundles   'enzyme',
+94 verbose rebuildBundles   'history',
+94 verbose rebuildBundles   'mocha',
+94 verbose rebuildBundles   'npm-debug.log',
+94 verbose rebuildBundles   'radium',
+94 verbose rebuildBundles   'react',
+94 verbose rebuildBundles   'react-addons-test-utils',
+94 verbose rebuildBundles   'react-button',
+94 verbose rebuildBundles   'react-dom',
+94 verbose rebuildBundles   'react-hot-loader',
+94 verbose rebuildBundles   'react-materialize',
+94 verbose rebuildBundles   'react-native',
+94 verbose rebuildBundles   'react-router',
+94 verbose rebuildBundles   'react-simple-dropdown',
+94 verbose rebuildBundles   'socket.io-client',
+94 verbose rebuildBundles   'webpack',
+94 verbose rebuildBundles   'webpack-dev-server' ]
+95 verbose rebuild bundle /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/npm-debug.log
+96 verbose rebuild bundle /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-materialize
+97 info build /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-materialize
+98 info preinstall react-materialize@0.17.2
+99 info linkStuff react-materialize@0.17.2
+100 silly linkStuff react-materialize@0.17.2 has /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules as its parent node_modules
+101 verbose linkBins react-materialize@0.17.2
+102 verbose linkMans react-materialize@0.17.2
+103 verbose rebuildBundles react-materialize@0.17.2
+104 verbose rebuildBundles [ 'classnames', 'react', 'react-dom' ]
+105 info install react-materialize@0.17.2
+106 info postinstall react-materialize@0.17.2
+107 verbose rebuild bundle /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-simple-dropdown
+108 info build /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules/react-simple-dropdown
+109 info preinstall react-simple-dropdown@1.1.5
+110 info linkStuff react-simple-dropdown@1.1.5
+111 silly linkStuff react-simple-dropdown@1.1.5 has /Users/JanaMano/Desktop/hack-with-ix/ui/node_modules as its parent node_modules
+112 verbose linkBins react-simple-dropdown@1.1.5
+113 verbose linkMans react-simple-dropdown@1.1.5
+114 verbose rebuildBundles react-simple-dropdown@1.1.5
+115 verbose rebuildBundles [ 'classnames' ]
+116 info install react-simple-dropdown@1.1.5
+117 info postinstall react-simple-dropdown@1.1.5
+118 info install webpack-starter@1.0.0
+119 info postinstall webpack-starter@1.0.0
+120 info prepublish webpack-starter@1.0.0
+121 verbose validateInstall loading /Users/JanaMano/Desktop/hack-with-ix/ui/package.json for validation
+122 verbose stack Error: The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+122 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+122 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+122 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+122 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+122 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+122 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+122 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+122 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+122 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+122 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+123 verbose cwd /Users/JanaMano/Desktop/hack-with-ix/ui
+124 error Darwin 15.5.0
+125 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+126 error node v4.5.0
+127 error npm  v2.15.9
+128 error code EPEERINVALID
+129 error peerinvalid The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+129 error peerinvalid Peer react-button@1.2.1 wants react@>=0.12.0
+129 error peerinvalid Peer react-dom@0.14.8 wants react@^0.14.8
+129 error peerinvalid Peer react-native@0.37.0 wants react@~15.3.1
+129 error peerinvalid Peer react-addons-test-utils@0.14.8 wants react@^0.14.8
+129 error peerinvalid Peer react-simple-dropdown@1.1.5 wants react@^0.14.0 || ^15.0.0
+129 error peerinvalid Peer enzyme@1.6.0 wants react@0.13.x || 0.14.x
+130 verbose exit [ 1, true ]

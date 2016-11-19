@@ -14,12 +14,7 @@ import { Center } from 'components/Flex'
 export default class Container extends Component {
   constructor () {
     super()
-    this.query = "";
   }
-	
-	
-
-    
   myfunction() {
     if ($(".dropdown-content").attr('id') == "shown") {
     	$(".dropdown-content").attr("id","hidden");
@@ -45,3 +40,4 @@ export default class Container extends Component {
 	)
   }
 }
+x
