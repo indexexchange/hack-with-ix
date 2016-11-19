@@ -10,6 +10,7 @@ export default function Row ({
       { ...props }
       style = {{
         display: `flex`,
+        width: 'auto',
         ...style
       }}
     >
