@@ -13,6 +13,7 @@
     "history": "^1.17.0",
     "radium": "^0.15.3",
     "react": "^0.14.3",
+    "react-button": "^1.2.1",
     "react-dom": "^0.14.3",
     "react-native": "^0.37.0",
     "react-router": "^1.0.2",

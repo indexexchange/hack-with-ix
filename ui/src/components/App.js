@@ -24,8 +24,6 @@ export default class App extends Component {
 class DisplayProfileImage extends Component {
   
   render () {
-
-
     return (
         <div style = {{ width: 55, overflow: 'hidden'}}> <img style = {{ width: '100%', marginTop: 5, borderRadius: '50%' }} src="http://s3.amazonaws.com/hiphopdx-production/2015/12/Kanye-West_12-01-2015.jpg"/></div>
     );
