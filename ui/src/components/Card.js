@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CardList from './cardList.jsx'
+import CardList from 'components/CardList'
 
 let cards = [
     {'name': 'Super card', 'id': 1},

@@ -16,20 +16,20 @@ export default class App extends Component {
 
   render () {
     return (
-      <Navbar className="#1a237e indigo darken-4" left>
-<<<<<<< HEAD
-           <NavItem style={{float:'left'}}> <DisplayProfileImage/>  </NavItem>
-=======
-           <NavItem style={{float:'left'}}> <DisplayProfileImage/> </NavItem>
->>>>>>> 8333bf76ad27b5ee7fec17b60cb1071039b1d191
-           <NavItem style={{float:'left'}}> Kanye West </NavItem>
-           <NavItem style={{float:'right'}} href='./logout'> Logout </NavItem>
-      </Navbar>
+      <div style={{width:'100%'}} >
+        <Navbar className="#1a237e indigo darken-4" left>
+         <NavItem style={{float:'left'}}> <DisplayProfileImage/>  </NavItem>
+         <NavItem style={{float:'left'}}> Kanye West </NavItem>
+         <NavItem style={{float:'right'}} href='./logout'> Logout </NavItem>
+        </Navbar>
+
+        <DDFormat/>
+      </div>
     )
   }
 }
 
-class DDFormat extends React.Component {
+class DDFormat extends Component {
   render() {
     return (
       <Dropdown color="primary" label="Format">
@@ -40,7 +40,7 @@ class DDFormat extends React.Component {
   }
 }
 
-class DDPlatform extends React.Component {
+class DDPlatform extends Component {
   render() {
     return (
       <Dropdown color="primary" label="Platform">
@@ -52,7 +52,7 @@ class DDPlatform extends React.Component {
   }
 }
 
-class DDLocation extends React.Component {
+class DDLocation extends Component {
   render() {
     return (
       <Dropdown color="primary" label="Platform">
@@ -70,9 +70,9 @@ class DDLocation extends React.Component {
 class DisplayProfileImage extends Component {
   render () {
     return (
-        <div style = {{ width: 55, overflow: 'hidden'}}> 
-          <img style = {{ width: '100%', marginTop: 5, borderRadius: '50%' }} src="http://s3.amazonaws.com/hiphopdx-production/2015/12/Kanye-West_12-01-2015.jpg"/>
-        </div>
+      <div style = {{ width: 55, overflow: 'hidden'}}> 
+        <img style = {{ width: '100%', marginTop: 5, borderRadius: '50%' }} src="http://s3.amazonaws.com/hiphopdx-production/2015/12/Kanye-West_12-01-2015.jpg"/>
+      </div>
     );
   }
 }
