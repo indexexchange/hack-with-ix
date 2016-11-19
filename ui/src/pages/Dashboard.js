@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
+import { Flex, Box } from 'reflexbox'
+import { Container, Heading } from 'rebass'
+
 import Navbar from '../components/Navbar'
 import configs from '../components/configs'
-import Body from '../components/Body'
+import DatacenterOverview from '../components/DatacenterOverview'
 
 
 class App extends Component {
@@ -39,7 +42,16 @@ class App extends Component {
     return (
       <div className="App" style={style}>
         <Navbar />
-        <Body />
+        <Container>
+          <Flex align="center" justify="space-around">
+            <Heading level={1}>Servers</Heading>
+          </Flex>
+          <Flex>
+            <DatacenterOverview dc="EU" />
+            <DatacenterOverview dc="NA" />
+            <DatacenterOverview dc="AS" />
+          </Flex>
+        </Container>
 
       </div>
     );
