@@ -16,6 +16,7 @@ export default class App extends Component {
 
   render () {
     return (
+<<<<<<< HEAD
       <div style={{width:'100%'}} >
         <Navbar className="#1a237e indigo darken-4" left>
          <NavItem style={{float:'left'}}> <DisplayProfileImage/>  </NavItem>
@@ -25,10 +26,18 @@ export default class App extends Component {
 
         <DDFormat/>
       </div>
+=======
+      <Navbar className="#1a237e indigo darken-4" left>
+           <NavItem style={{float:'left'}}> <DisplayProfileImage/>  </NavItem>
+           <NavItem style={{float:'left'}}> Kanye West </NavItem>
+           <NavItem style={{float:'right'}} href='./logout'> Logout </NavItem>
+      </Navbar>
+>>>>>>> bf6d0478cbd96da10b3b95f7383d2f52ae847b8d
     )
   }
 }
 
+<<<<<<< HEAD
 class DDFormat extends Component {
   render() {
     return (
@@ -67,6 +76,8 @@ class DDLocation extends Component {
 }
 
 
+=======
+>>>>>>> bf6d0478cbd96da10b3b95f7383d2f52ae847b8d
 class DisplayProfileImage extends Component {
   render () {
     return (
