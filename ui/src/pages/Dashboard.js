@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import Navbar from '../components/Navbar'
-import Banner from '../components/Banner'
 import configs from '../components/configs'
 import Body from '../components/Body'
-import GetStarted from '../components/GetStarted'
 
 
 class App extends Component {
