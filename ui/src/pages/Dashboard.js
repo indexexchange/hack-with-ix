@@ -3,45 +3,42 @@ import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox'
 import { Container, Heading } from 'rebass'
 
-import Navbar from '../components/Navbar'
-import configs from '../components/configs'
+import Page from './Page'
 import DatacenterOverview from '../components/DatacenterOverview'
 
+function getApiData(url) {
+  return fetch(url)
+  .then((response) => {
+    return response.json().data;
+  });
+}
+
+function getServers() {
+  return getApiData('http://localhost:8000/servers');
+}
 
 class App extends Component {
-  static childContextTypes = {
-    rebass: React.PropTypes.object
+  constructor() {
+    super();
+
+    this.state = {
+      servers: null,
+    };
+    this.loadServers();
   }
 
-  getChildContext () {
-    return {
-      rebass: configs.rebass,
-    }
+  loadServers() {
+    getServers()
+    .then((servers) => {
+      this.setState({
+        servers: servers,
+      })
+    })
   }
 
   render() {
-
-    // Design config values
-    const {
-      fontFamily,
-      fontWeight,
-      letterSpacing,
-      color,
-      backgroundColor
-    } = configs.rebass;
-
-    // App style
-    const style = {
-      fontFamily,
-      fontWeight,
-      letterSpacing,
-      color,
-      backgroundColor
-    };
-
     return (
-      <div className="App" style={style}>
-        <Navbar />
+      <Page>
         <Container>
           <Flex align="center" justify="space-around">
             <Heading level={1}>Servers</Heading>
@@ -52,8 +49,7 @@ class App extends Component {
             <DatacenterOverview dc="AS" />
           </Flex>
         </Container>
-
-      </div>
+      </Page>
     );
   }
 }
