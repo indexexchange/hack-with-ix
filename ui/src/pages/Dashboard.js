@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import Navbar from './Navbar'
-import Banner from './Banner'
-import configs from './configs'
-import Body from './Body'
-import GetStarted from './GetStarted'
+import Navbar from '../components/Navbar'
+import Banner from '../components/Banner'
+import configs from '../components/configs'
+import Body from '../components/Body'
+import GetStarted from '../components/GetStarted'
 
 
 class App extends Component {
