@@ -20,7 +20,9 @@
   "dependencies": {
     "express": "^4.14.0",
     "kraken-js": "^2.1.0",
-    "on-headers": "^1.0.1"
+    "on-headers": "^1.0.1",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "^3.10.2",
