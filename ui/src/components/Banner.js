@@ -18,7 +18,7 @@ function Header() {
     }}
     align="center"
     backgroundImage="http://www.idatha.com/sitio/img/hero25.jpg">
-    <Heading size={1} big children='Datalize' />
+    <Heading size={1} big children='DataIX' />
     <Text children='Simple tool for crunching massive data' />
     <Box py={2}>
       <Button

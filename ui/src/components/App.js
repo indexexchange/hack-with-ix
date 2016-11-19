@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Banner from './Banner'
 import configs from './configs'
 import Body from './Body'
+import GetStarted from './GetStarted'
 
 
 class App extends Component {
@@ -41,7 +42,9 @@ class App extends Component {
       <div className="App" style={style}>
         <Navbar />
         <Banner />
+        <GetStarted />
         <Body />
+
       </div>
     );
   }
