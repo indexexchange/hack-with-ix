@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Navbar from './Navbar'
+import Banner from './Banner'
 import configs from './configs'
 import Body from './Body'
 
@@ -39,6 +40,7 @@ class App extends Component {
     return (
       <div className="App" style={style}>
         <Navbar />
+        <Banner />
         <Body />
       </div>
     );

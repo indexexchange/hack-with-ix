@@ -9,11 +9,11 @@ import {
 import { Chart } from './Charts'
 
 function BodyChart() {
-  return <Container>
+  return <Flex>
     <Box py={4} px={4}>
       <Chart />
     </Box>
-  </Container>
+  </Flex>
 }
 
 
