@@ -1,32 +1,28 @@
 const _ = require('lodash');
-const data = require('./data/data.json');
+const data = require('../data/data.json');
 const log = console.log.bind(console);
 
 // Ads we are analyzing
-const ads = data.adstats.AS;
+const ads = data.adstats.NA;
 
 const K = 1000;
 const M = 1000000;
 const G = 1000000000;
 
 function SpendByPlatform(platform, format) {
-    const sum = _.chain(ads)
+    return _.chain(ads)
     .filter(PlatformFilter(platform, format))
     .map("spend")
     .sum()
     .value();
-
-    return money(sum);
 }
 
 function ImpressionsByPlatform(platform, format) {
-    const sum = _.chain(ads)
+    return _.chain(ads)
     .filter(PlatformFilter(platform, format))
     .map("impressions")
     .sum()
     .value();
-
-    return unitify(sum);
 }
 
 function PlatformFilter(platform, format) {
@@ -55,9 +51,13 @@ function unitify(x) {
 }
 
 function Breakdown(platform, format) {
+    const spend = SpendByPlatform(platform, format);
+    const views = ImpressionsByPlatform(platform, format);
+
     log(`${platform} - ${format}:`,
-        SpendByPlatform(platform, format),
-        ImpressionsByPlatform(platform, format)
+        money(spend),
+        unitify(views),
+        unitify(spend/views)
     );
 }
 // Desktop
