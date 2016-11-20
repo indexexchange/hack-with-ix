@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import {LineChart, BarChart} from './Chart'
 
+var TestLineData = [{
+  key: "Spend",
+  values: []
+}];
+
 export default class Impressions extends Component {
 
   constructor () {
@@ -15,6 +20,8 @@ export default class Impressions extends Component {
       .then(res => res.json())
       .then(json => {
         this.setState({ impressionsNA: json.data})
+        console.log("NA")
+        console.log(this.state.impressionsNA)
       })
       .catch(err => { console.log('ERROR', err); });
 
@@ -54,7 +61,7 @@ export default class Impressions extends Component {
     }
     for (var hour in timeToCostDict) {
       var data = {}
-      data["hour"] = hour
+      data["hour"] = parseInt(hour)
       var averageSpend = 0;
       for (var i = 0; i < timeToCostDict[hour].length; i++) {
         averageSpend += timeToCostDict[hour][i]
@@ -112,7 +119,6 @@ export default class Impressions extends Component {
       data["spend"] = averageSpend
       platformToCost.push(data)
     }
-    console.log(platformToCost)
     return platformToCost
   }
 
@@ -126,7 +132,7 @@ export default class Impressions extends Component {
         platform = platformToCost[i]["platform"]
       }
     }
-    console.log(platform)
+    // console.log(platform)
     return platform
   }
 
@@ -180,11 +186,23 @@ export default class Impressions extends Component {
     return format
   }
 
+  datafy(data) {
+    var graphData = [{
+      key: "Spend",
+      values: data
+    }];
+    return graphData
+  }
+
 
 
   componentWillMount() {
     console.log("componentWillMount ...");
     this.refresh()
+      // TestLineData[0]["values"] = [{"hour": 0, "value": 3234}]
+      // TestLineData[0]["values"] = this.getTimeToCost()
+      // console.log(this.getTimeToCost());
+      // console.log("testline",TestLineData)
   }
 
   // render () {
@@ -192,19 +210,24 @@ export default class Impressions extends Component {
   //         <div>
   //          <button onClick={() => {this.getTimeToCost()}}>Time vs Cost</button>
   //          <button onClick={() => {this.getBestHour(this.getTimeToCost())}}>Best Hour</button>
-  //          <button onClick={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()))}}>Platform vs Cost at Best Hour</button>
+  //          <button onClick={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()), "video")}}>Platform vs Cost at Best Hour</button>
   //          <button onClick={() => {this.getBestPlatform(this.getPlatformToCost(this.getBestHour(this.getTimeToCost())))}}>Best Platform</button>
-  //          <button onClick={() => {this.getFormatToCost(this.getBestHour(this.getTimeToCost()))}}>Format vs Cost at Best Hour</button>
+  //          <button onClick={() => {this.getFormatToCost(this.getBestHour(this.getTimeToCost()), "mobile")}}>Format vs Cost at Best Hour</button>
   //          <button onClick={() => {this.getBestFormat(this.getFormatToCost(this.getBestHour(this.getTimeToCost())))}}>Best Format</button>
   //         </div>
   //     )
   // }
+
+  // <BarChart data={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()), "video")}} x="platform" y="spend" />
+
+
   
   render () {
+
      return (
       <div style={{width: "55%"}}>
-        <LineChart data={() => {this.getTimeToCost()}} x="hour" y="spend" />
-        <BarChart data={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()), "video")}} x="platform" y="spend" />
+        <LineChart data={this.datafy(this.getTimeToCost())} x="hour" y="spend" />
+        <BarChart data={this.datafy(this.getPlatformToCost(this.getBestHour(this.getTimeToCost()), "banner"))} x="platform" y="spend" />
       </div>
       )
    }
