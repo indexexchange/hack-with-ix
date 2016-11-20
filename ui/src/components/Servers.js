@@ -57,7 +57,6 @@ class ServerListView extends Component {
   }
 }
 
-
 class ServerView extends Component {
   render () {
     var server = this.props.server

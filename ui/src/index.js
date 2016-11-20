@@ -5,6 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 import App from 'components/App'
 import Servers from 'components/Servers'
+import Impressions from 'components/Impressions'
 
 let routes =
   <Router
@@ -18,6 +19,11 @@ let routes =
     <Route
       path = "/servers"
       component = { Servers }
+    />
+
+    <Route
+      path = "/impressions"
+      component = { Impressions }
     />
   </Router>
 
