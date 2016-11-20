@@ -88,17 +88,21 @@ module.exports = {
 
         // }
 
-
         return query;
     },
 
-    rankData: function rankData(result) {
+    rankData: function rankData(result, limit) {
         var ranked = result;
 
 
         ranked['data'].sort(function (a, b) {
             return (a['spend']/(a['impressions']*1000)) - (b['spend']/(b['impressions']*1000));
         });
+
+        ranked['data'] = ranked['data'].slice(0, limit);
+        for (var i = 0; i < ranked['data'].length; i++) {
+            ranked['data'][i]['cdm'] = (ranked['data'][i]['spend']/(ranked['data'][i]['impressions']*1000))
+        }
 
         return ranked;
     },
