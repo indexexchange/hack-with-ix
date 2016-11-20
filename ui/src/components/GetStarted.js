@@ -7,10 +7,9 @@ import {
   Section,
   Text,
   Block,
-  Panel,
-  PanelHeader,
   Button,
   Divider,
+  Space,
 } from 'rebass'
 
 import IconGraph from 'react-icons/lib/fa/bar-chart'
@@ -24,24 +23,25 @@ function Blurb() {
     <p> "DataIX is the next generation's answer to analyzing massive data" </p>
     </Box>
   <Divider />
+  <Space />
   <Flex
     align="center"
     justify="space-around"
   >
-    <Box p={3}>
+    <Box px={3}>
       <IconFile size={70}/>
       <h3>IX API</h3>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dapibus tristique justo nec semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</Text>
+      <Text>DataIX uses its own API to crunch in useful data from huge JSON files. We use IX JSON file as an example for extrapolation. Check out our GitHub repo for further details. </Text>
     </Box>
     <Box px={3}>
       <IconGraph size={70}/>
       <h3>Beautiful Display</h3>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dapibus tristique justo nec semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</Text>
+      <Text>Using React UI/UX Libraries such as Recharts, Rebass and Reflexbox, data is displayed in a minimalistic and simple manner. Check out our GitHub repo for further details. </Text>
     </Box>
-    <Box p={3}>
+    <Box px={3}>
       <IconGlobe size={70}/>
       <h3>Globalization</h3>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dapibus tristique justo nec semper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. </Text>
+      <Text>DataIX hopes to capture the essence of globalization by comparing data sets between two continents, all platforms, and all formats. We believe this can be more valuable to tech companies who are working to expand overseas.</Text>
     </Box>
   </Flex>
   </Container>
