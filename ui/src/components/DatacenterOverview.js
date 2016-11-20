@@ -5,7 +5,7 @@ import {
 } from 'rebass'
 
 const STATUS_COLORS = {
-    "GREEN":    "green",
+    "GREEN":    "#00FF88",
     "YELLOW":   "yellow",
     "ORANGE":   "orange",
     "RED":      "red",
@@ -18,11 +18,12 @@ function ServerStatus(props) {
     return <div style={{
         display: "inline-block",
         backgroundColor: color,
-        minHeight: 30,
-        minWidth: 80,
-        maxHeight: 30,
-        maxWidth: 80,
+        minHeight: 15,
+        minWidth: 40,
+        maxHeight: 15,
+        maxWidth: 40,
         margin: 10,
+        borderRadius: 3,
     }} />
 }
 
@@ -40,7 +41,7 @@ function DatacenterOverview(props) {
         </Flex>
         </Box>
         <Box sm={3}>
-        <Flex flexAuto direction="row" wrap>
+        <Flex wrap>
             {props.servers.map((server) => <ServerStatus server={server} />)}
         </Flex>
         </Box>
