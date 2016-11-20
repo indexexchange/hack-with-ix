@@ -22,7 +22,8 @@ function Header() {
     <Text children='Simple tool for crunching massive data' />
     <Box py={2}>
       <Button
-        children='Get Started' />
+        children='Get Started'
+        href="./" />
     </Box>
   </Banner>
 }
