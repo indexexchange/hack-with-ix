@@ -1,5 +1,6 @@
 'use strict';
 
+const adsOverview = require('../models/adsOverview');
 const model = require('../models/data'),
     DCS = ['NA', 'EU', 'AS'],
     FIRST = Date.parse('2016-01-01T00:00'),
@@ -38,6 +39,13 @@ module.exports = function(router) {
         res.json({
             message: 'OK',
             data: model.getServerData()
+        });
+    }).all(badVerb);
+
+    router.route('/ads/overview').get((req, res, next) => {
+        res.json({
+            message: 'OK',
+            data: adsOverview(),
         });
     }).all(badVerb);
 
