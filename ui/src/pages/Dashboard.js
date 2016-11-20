@@ -5,6 +5,7 @@ import { Flex, Box } from 'reflexbox'
 import { Container, Heading, Space } from 'rebass'
 
 import Page from './Page'
+import AdsOverview from '../components/AdsOverview'
 import DatacenterOverview from '../components/DatacenterOverview'
 
 function getApiData(url) {
@@ -50,7 +51,11 @@ function Datacenters(props) {
 
 function Title(props) {
   return <Flex align="center" justify="space-around">
-    <Heading style={{marginBottom: 20, marginTop: 30}} level={1}>{props.children}</Heading>
+    <Heading style={{marginBottom: 20, marginTop: 30, textAlign: "center"}} level={1}>
+      {props.text}
+      <br/>
+      <small style={{fontWeight: "normal", fontSize: 14, textTransform: "none"}}>{props.subtext}</small>
+    </Heading>
   </Flex>
 }
 
@@ -77,14 +82,12 @@ class App extends Component {
     return (
       <Page>
         <Container>
-          <Title>Servers</Title>
+          <Title text="Servers" />
           <Datacenters datacenters={this.state.datacenters} />
         </Container>
         <Container>
-          <Title>Ads</Title>
-          {
-            // TODO
-          }
+          <Title text="Ads" subtext="Overview of past 14 days" />
+          <AdsOverview />
         </Container>
       </Page>
     );

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox'
 
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import configs from '../components/configs'
 
 class Page extends Component {
@@ -39,6 +40,7 @@ class Page extends Component {
       <div className="Page" style={style}>
         <Navbar />
         {this.props.children}
+        <Footer />
       </div>
     );
   }
