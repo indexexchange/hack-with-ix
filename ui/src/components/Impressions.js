@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {LineChart, BarChart} from './Chart'
 
 export default class Impressions extends Component {
 
@@ -78,8 +79,9 @@ export default class Impressions extends Component {
     return hour
   }
 
-  /* Get the average spend of each platform during the best hour in the day */
-  getPlatformToCost(bestHour) {
+  /* Get the average spend of each platform based on format input 
+     by the user during the best hour in the day */
+  getPlatformToCost(bestHour, format) {
     var platformToCostDict = {}
     var platformToCost = []
     var dcList = [this.state.impressionsNA, this.state.impressionsEU, this.state.impressionsAS]
@@ -87,13 +89,15 @@ export default class Impressions extends Component {
       var impressionData = dcList[i];
       for (var j = 0; j < impressionData.length; j++) {
         var platform = impressionData[j].platform
-        if (!(platform in platformToCostDict)) {
-          platformToCostDict[platform] = []
-          platformToCostDict[platform].push(impressionData[j].spend)
-        } else {
-            var spendList = platformToCostDict[platform]
-            spendList.push(impressionData[j].spend)
-            platformToCostDict[platform] = spendList
+        if (impressionData[j].format == format) {
+          if (!(platform in platformToCostDict)) {
+            platformToCostDict[platform] = []
+            platformToCostDict[platform].push(impressionData[j].spend)
+          } else {
+              var spendList = platformToCostDict[platform]
+              spendList.push(impressionData[j].spend)
+              platformToCostDict[platform] = spendList
+          }
         }
       }
     }
@@ -127,7 +131,7 @@ export default class Impressions extends Component {
   }
 
     /* Get the average spend of each format during the best hour in the day */
-  getFormatToCost(bestHour) {
+  getFormatToCost(bestHour, platform) {
     var formatToCostDict = {}
     var formatToCost = []
     var dcList = [this.state.impressionsNA, this.state.impressionsEU, this.state.impressionsAS]
@@ -135,13 +139,15 @@ export default class Impressions extends Component {
       var impressionData = dcList[i];
       for (var j = 0; j < impressionData.length; j++) {
         var format = impressionData[j].format
-        if (!(format in formatToCostDict)) {
-          formatToCostDict[format] = []
-          formatToCostDict[format].push(impressionData[j].spend)
-        } else {
-            var spendList = formatToCostDict[format]
-            spendList.push(impressionData[j].spend)
-            formatToCostDict[format] = spendList
+        if (impressionData[j].platform == platform) {
+          if (!(format in formatToCostDict)) {
+            formatToCostDict[format] = []
+            formatToCostDict[format].push(impressionData[j].spend)
+          } else {
+              var spendList = formatToCostDict[format]
+              spendList.push(impressionData[j].spend)
+              formatToCostDict[format] = spendList
+          }
         }
       }
     }
@@ -181,21 +187,26 @@ export default class Impressions extends Component {
     this.refresh()
   }
 
+  // render () {
+  //    return (
+  //         <div>
+  //          <button onClick={() => {this.getTimeToCost()}}>Time vs Cost</button>
+  //          <button onClick={() => {this.getBestHour(this.getTimeToCost())}}>Best Hour</button>
+  //          <button onClick={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()))}}>Platform vs Cost at Best Hour</button>
+  //          <button onClick={() => {this.getBestPlatform(this.getPlatformToCost(this.getBestHour(this.getTimeToCost())))}}>Best Platform</button>
+  //          <button onClick={() => {this.getFormatToCost(this.getBestHour(this.getTimeToCost()))}}>Format vs Cost at Best Hour</button>
+  //          <button onClick={() => {this.getBestFormat(this.getFormatToCost(this.getBestHour(this.getTimeToCost())))}}>Best Format</button>
+  //         </div>
+  //     )
+  // }
+  
   render () {
      return (
-          <div>
-           <button onClick={() => {this.getTimeToCost()}}>Time vs Cost</button>
-           <button onClick={() => {this.getBestHour(this.getTimeToCost())}}>Best Hour</button>
-           <button onClick={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()))}}>Platform vs Cost at Best Hour</button>
-           <button onClick={() => {this.getBestPlatform(this.getPlatformToCost(this.getBestHour(this.getTimeToCost())))}}>Best Platform</button>
-           <button onClick={() => {this.getFormatToCost(this.getBestHour(this.getTimeToCost()))}}>Format vs Cost at Best Hour</button>
-           <button onClick={() => {this.getBestFormat(this.getFormatToCost(this.getBestHour(this.getTimeToCost())))}}>Best Format</button>
-          </div>
+      <div style={{width: "55%"}}>
+        <LineChart data={() => {this.getTimeToCost()}} x="hour" y="spend" />
+        <BarChart data={() => {this.getPlatformToCost(this.getBestHour(this.getTimeToCost()), "video")}} x="platform" y="spend" />
+      </div>
       )
-  }
-  /*
-     return (
-      <ChrisChild timeToCost={() => {this.getTimeToCost()}} />
-      )
-  */
+   }
+  
 }
