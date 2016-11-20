@@ -91,7 +91,7 @@ export class HandleButton extends Component {
         this.forceUpdate();
       }
 
-      if(myState == "Video"){
+      if(myState == "Video" || myState == "Banner" || myState == "Desktop" || myState == "Mobile" || myState == "App"){
         {this.props.hideMod(myState)};
       }
       //this.state.showComponent_A1 = true;
