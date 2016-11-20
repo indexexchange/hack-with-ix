@@ -79,6 +79,46 @@ module.exports = function (router) {
         });
     }).all(badVerb);
 
+    router.route('/query').get((req, res, next) => {
+        const q = req.query;
+
+        let errs = [];
+
+        if (errs.length) {
+            return res.status(400).json({
+                message: 'VALIDATION_FAILED',
+                errors:  errs
+            });
+        }
+
+        res.json({
+            message: 'OK',
+            data:    model.getQueryData(q.dc, q.pf, q.ft)
+        });
+    }).all(badVerb);
+
+    router.route('/query-rank').get((req, res, next) => {
+        const q = req.query;
+
+        let errs = [];
+
+        if (errs.length) {
+            return res.status(400).json({
+                message: 'VALIDATION_FAILED',
+                errors:  errs
+            });
+        }
+
+        var result = {
+            data:    model.getQueryData(q.dc, q.pf, q.ft)
+        };
+
+        var rank = model.rankData(result, q.limit);
+
+        res.json(rank);
+    }).all(badVerb);
+
+
     router.route('/impressions').get((req, res, next) => {
         const q = req.query;
 
