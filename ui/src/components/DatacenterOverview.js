@@ -6,10 +6,10 @@ import {
 
 const STATUS_COLORS = {
     "GREEN":    "#00FF88",
-    "YELLOW":   "yellow",
-    "ORANGE":   "orange",
-    "RED":      "red",
-    "GREY":     "grey",
+    "YELLOW":   "#faff00",
+    "ORANGE":   "#ff5400",
+    "RED":      "#d62a00",
+    "GREY":     "#686b7b",
 };
 
 function ServerStatus(props) {
