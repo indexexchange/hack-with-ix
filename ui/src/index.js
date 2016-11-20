@@ -5,12 +5,10 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 import App from 'components/App'
 import Servers from 'components/Servers'
-<<<<<<< HEAD
 import Logout from 'components/Logout'
+import Dropb from 'components/Dropb'
+import Search from 'components/Search'
 
-=======
-import Container from 'components/Container'
->>>>>>> c54ef999afb9f93285af85395e7d447006d37ffa
 let routes =
   <Router
     history = { createBrowserHistory() }
@@ -24,20 +22,17 @@ let routes =
       path = "/servers"
       component = { Servers }
     />
-<<<<<<< HEAD
 
     <Route
       path = "/logout"
       component = { Logout }
     />
-=======
+	
+	<Route
+		path = "/search"
+		component = { Search }
+	/>    
     
-    
-    <Route
-	  path = "/container"
-	  component = { Container }
-	/>
->>>>>>> c54ef999afb9f93285af85395e7d447006d37ffa
   </Router>
 
 render(routes, document.getElementById(`root`))
