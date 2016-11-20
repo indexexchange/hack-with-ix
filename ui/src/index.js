@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { Router, Route } from 'react-router'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 
+import Compare from './pages/Compare'
 import Dashboard from './pages/Dashboard'
 import Presentation from './pages/Presentation'
 import Servers from './pages/Servers'
@@ -15,6 +16,11 @@ let routes =
     <Route
       path = "/"
       component = { Dashboard }
+    />
+
+    <Route
+      path = "/compare"
+      component = { Compare }
     />
 
     <Route
