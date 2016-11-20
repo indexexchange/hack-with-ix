@@ -65,7 +65,7 @@ const dark = {
   },
   Toolbar: {
     minHeight: 64,
-    marginBottom: 40,
+    //marginBottom: 40,
     color: '#00d9f7',
     backgroundColor: `rgba(0, 0, 0, ${7/8})`
   },
