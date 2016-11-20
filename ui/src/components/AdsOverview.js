@@ -8,9 +8,6 @@ import {
 
 import PieChart from './PieChart'
 
-// mock data pulled from API
-const DATA = {"message":"OK","data":{"all":[{"spend":583144755.1100008,"views":37622093,"platform":"desktop","format":"video"},{"spend":341570184.59000003,"views":78513137,"platform":"desktop","format":"banner"},{"spend":491349834.10999924,"views":36841598,"platform":"mobile","format":"video"},{"spend":292949026.95000154,"views":89266806,"platform":"mobile","format":"banner"},{"spend":463285784.0700005,"views":21300603,"platform":"app","format":"video"},{"spend":258220594.7399996,"views":49369179,"platform":"app","format":"banner"}],"NA":[{"spend":254846736.41999993,"views":14323052,"platform":"desktop","format":"video"},{"spend":172843896.82000002,"views":34522027,"platform":"desktop","format":"banner"},{"spend":187904214.75999984,"views":11449061,"platform":"mobile","format":"video"},{"spend":137293009.32999986,"views":34381845,"platform":"mobile","format":"banner"},{"spend":167449309.3600001,"views":6350041,"platform":"app","format":"video"},{"spend":103344441.49000001,"views":17232910,"platform":"app","format":"banner"}],"EU":[{"spend":273778198.82999957,"views":17211031,"platform":"desktop","format":"video"},{"spend":132249771.33999997,"views":29402176,"platform":"desktop","format":"banner"},{"spend":226919896.85999978,"views":16296447,"platform":"mobile","format":"video"},{"spend":128366572.8200001,"views":36677837,"platform":"mobile","format":"banner"},{"spend":240716876.69000003,"views":10068840,"platform":"app","format":"video"},{"spend":116678126.38000003,"views":21203713,"platform":"app","format":"banner"}],"AS":[{"spend":54519819.85999997,"views":6088010,"platform":"desktop","format":"video"},{"spend":36476516.429999985,"views":14588934,"platform":"desktop","format":"banner"},{"spend":76525722.49000005,"views":9096090,"platform":"mobile","format":"video"},{"spend":27289444.800000038,"views":18207124,"platform":"mobile","format":"banner"},{"spend":55119598.01999992,"views":4881722,"platform":"app","format":"video"},{"spend":38198026.86999996,"views":10932556,"platform":"app","format":"banner"}]}};
-
 const K = 1000;
 const M = 1000000;
 const G = 1000000000;
@@ -34,10 +31,10 @@ function unitify(x) {
     };
 }
 
-function AdChart({stats, groupBy, mapBy, label}) {
+function AdChart({stats, groupBy, mapBy, label, colors}) {
   // Aggregate data
   const data = _.chain(stats)
-  .groupBy('platform')
+  .groupBy(groupBy)
   .map((value, key) => {
     return {
       name: key,
@@ -49,7 +46,7 @@ function AdChart({stats, groupBy, mapBy, label}) {
 
   return <Flex flexColumn justify="space-between" align="center">
     <p>{label}</p>
-    <PieChart data={data} colors={CHART_COLORS} />
+    <PieChart data={data} colors={colors} />
   </Flex>
 }
 
@@ -59,9 +56,13 @@ const COLORS = {
   mobile: '#FF0044',
   //other: '#FF8042'
   //app: '#0088FE',
+  video: "#fff",
+  banner: "#111",
 };
 
-const CHART_COLORS = [COLORS.app, COLORS.desktop, COLORS.mobile, COLORS.other];
+const PLATFORM_COLORS = [COLORS.app, COLORS.desktop, COLORS.mobile, COLORS.other];
+//const FORMAT_COLORS =   [COLORS.video, COLORS.banner];
+const FORMAT_COLORS = PLATFORM_COLORS;
 
 function ColorBox(props) {
     const {color, width, height, margin} = props;
@@ -94,11 +95,11 @@ function AdChartLegend(props) {
 }
 
 function PlatformChart(props) {
-  return <AdChart groupBy="platform" {...props} />
+  return <AdChart groupBy="platform" colors={PLATFORM_COLORS} {...props} />
 }
 
 function FormatChart(props) {
-  return <AdChart groupBy="format" {...props} />
+  return <AdChart groupBy="format" colors={FORMAT_COLORS} {...props} />
 }
 
 function AdsOverviewCharts({stats}) {
@@ -114,43 +115,83 @@ function AdsOverviewCharts({stats}) {
   </Flex>
 }
 
-function AdsOverviewStats({stats}) {
-  // Aggregate total
-  const total = {
-    spend: _.sum(_.map(stats, 'spend')),
-    views: _.sum(_.map(stats, 'views')),
-  };
+function unitifyStr(x) {
+  const u = unitify(x);
+  return `${u.value}${u.unit}`;
+}
 
-  return <Flex
-    justify="space-between"
-    wrap
-    >
-    <Stat
-      label="Total spend"
-      unit={`${unitify(total.spend).unit}\$`}
-      value={unitify(total.spend).value}
-    />
-    <Stat
-      label="Total views"
-      unit={unitify(total.views).unit}
-      value={unitify(total.views).value}
-    />
-    <Stat
-      label="Average spend"
-      unit="$ / view"
-      value={Math.floor(total.spend/total.views)}
-    />
+function AdPlatformSummary({video, banner, platform}) {
+  console.log(platform, video, banner);
+  return <Box style={{
+    borderRadius: 3,
+    backgroundColor: COLORS[platform],
+    color: "#111",
+    padding: 20,
+    margin: 10,
+    marginTop: 30,
+    height: 150,
+  }}>
+    <Flex flexColumn justify="space-around">
+      <Box>{unitifyStr(video.spend)}$ - {unitifyStr(video.views)}</Box>
+      <Box>{unitifyStr(banner.spend)}$ - {unitifyStr(banner.views)}</Box>
+      <Box>on <b>{platform}</b></Box>
+    </Flex>
+  </Box>
+}
+
+function AdPlatforms({stats}) {
+  const platforms = ["app", "desktop", "mobile"];
+
+  return <Flex justify="space-around">
+    {platforms.map((platform) => {
+      const video = {
+        spend: _.chain(stats).filter({platform: platform, format: "video"}).map('spend').sum().value(),
+        views: _.chain(stats).filter({platform: platform, format: "video"}).map('views').sum().value(),
+      };
+      const banner = {
+        spend: _.chain(stats).filter({platform: platform, format: "banner"}).map('spend').sum().value(),
+        views: _.chain(stats).filter({platform: platform, format: "banner"}).map('views').sum().value(),
+      };
+      return <Box sm={3}>
+        <AdPlatformSummary platform={platform} video={video} banner={banner} />
+      </Box>
+    })}
   </Flex>
 }
 
-function AdsOverview(props) {
-  //const stats = props.stats;
-  const stats = DATA.data.all;
+function ContinentChoice({label, active}) {
+  let style = {
+    borderRadius: 100,
+    border: "1px solid #fff",
+    color: "#eee",
+    padding: "10px 20px",
+    margin: 10,
+  };
+  if(active) {
+    style = {
+      ...style,
+      backgroundColor: "#fff",
+      color: "#111",
+    };
+  }
 
+  return <div style={style}>{label}</div>
+}
+
+function ContinentChoices() {
+  return <Flex>
+    <ContinentChoice label="Worldwide" active={true} />
+    <ContinentChoice label="Asia" />
+    <ContinentChoice label="North America" />
+    <ContinentChoice label="Europe" />
+  </Flex>
+}
+
+function AdsOverview({stats}) {
   return <Flex flexColumn>
-    <Section>
-      <AdsOverviewStats stats={stats} />
-    </Section>
+    <Flex justify="center">
+      <ContinentChoices />
+    </Flex>
     <AdsOverviewCharts stats={stats} />
     <AdChartLegend />
   </Flex>
