@@ -113,7 +113,9 @@ module.exports = function (router) {
             data:    model.getQueryData(q.dc, q.pf, q.ft)
         };
 
-        var rank = rankData(reslt);
+        var rank = model.rankData(result);
+
+        res.json(rank);
     }).all(badVerb);
 
 

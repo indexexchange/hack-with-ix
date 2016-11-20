@@ -4,6 +4,7 @@ var data    = require('../data/data.json'),
     servers = data.servers,
     perf    = data.perfstats,
     ads     = data.adstats,
+    query     = data.adstats,
     LAG     = 60 * 5 * 1000;
 
 module.exports = {
@@ -38,5 +39,67 @@ module.exports = {
                 && data.timestamp <= to
                 && data.timestamp < now;
         });
+    },
+
+    getQueryData: function getQueryData(dc, pf, ft) {
+        var now = Date.now() - LAG;
+
+        if (dc && pf && ft) {
+            return query[dc].filter((data) => {
+                return data.platform == pf
+                    && data.format == ft
+                    && data.timestamp < now;
+            });          
+        }
+
+        if (dc && pf) {
+            return query[dc].filter((data) => {
+                return data.platform == pf
+                    // && data.format == ft
+                    && data.timestamp < now;
+            }); 
+        }
+
+        if (dc && ft) {
+            return query[dc].filter((data) => {
+                return data.format == ft
+                    && data.timestamp < now;
+            }); 
+
+        }
+
+        // if (pf && ft) {
+
+
+        // }
+
+        if (dc) {
+            return query[dc].filter((data) => {
+                return data.timestamp < now;
+            }); 
+        }
+
+        // if (pf) {
+
+        // }
+
+        // if (ft) {
+
+
+        // }
+
+
+        return query;
+    },
+
+    rankData: function rankData(result) {
+        var ranked = result;
+
+
+        ranked['data'].sort(function (a, b) {
+            return (a['spend']/(a['impressions']*1000)) - (b['spend']/(b['impressions']*1000));
+        });
+
+        return ranked;
     },
 };
