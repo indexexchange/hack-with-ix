@@ -22,28 +22,34 @@ export default class ModalG extends Component {
     };
   }
 
-renderModal(){
+renderModal(condition){
+    if(condition == true){
     
-    return(
-    	<div className="static-modal">
+    	return(
+    	
+    		<div className="static-modal">
                 <Modal.Dialog>
                     <Modal.Header>
                         <Modal.Title>How would you like to advertise your product ?</Modal.Title>
                     </Modal.Header>
                         <Modal.Body>
-                            <HandleButton/>
+                            <HandleButton hideMod={this.hideMod.bind(this)}/>
                          </Modal.Body>
                  </Modal.Dialog>
             </div>
-    ) 
+        )
+    	
+    } 
 
 
 
   }
 
-  hideMod(input, condition, input2){
+  hideMod(input){
     
-
+  	alert("Mystate is: " + input);
+  	 this.state.showComponent_mod = false;
+     this.forceUpdate();
 
 
   }
@@ -54,7 +60,7 @@ renderModal(){
     render() {
         return (
         	<div>
-            {this.renderModal()}
+            {this.renderModal(this.state.showComponent_mod)}
             </div>
             )
     }
