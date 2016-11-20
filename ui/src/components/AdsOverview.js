@@ -30,6 +30,14 @@ function unitify(x) {
     };
 }
 
+function PlatformChart(props) {
+
+}
+
+function AdsOverviewCharts() {
+
+}
+
 function AdsOverview(props) {
   //const stats = props.stats;
   const stats = DATA.data.all;
