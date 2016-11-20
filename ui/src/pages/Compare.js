@@ -50,6 +50,104 @@ function Chart(props) {
 
 
 class App extends Component {
+    constructor() {
+      super();
+
+      this.state = {
+        // Inputs
+        a: "Worldwide",
+        b: "Europe",
+        platforms: {
+          desktop: true,
+          mobile: true,
+          app: true,
+        },
+        formats: {
+          banner: true,
+          video: true,
+        },
+        // Output
+        compareResults: null,
+      };
+
+      this.loadCompare();
+
+      // Event handlers
+      this.setA = this.setA.bind(this);
+      this.setB = this.setB.bind(this);
+      this.toggleVideo = this.toggleVideo.bind(this);
+      this.toggleBanner = this.toggleBanner.bind(this);
+      this.toggleDesktop = this.toggleDesktop.bind(this);
+      this.toggleMobile = this.toggleMobile.bind(this);
+      this.toggleApp = this.toggleApp.bind(this);
+  }
+
+  setA(a) {
+    this.setState({a})
+  }
+
+  setB(b) {
+    this.setState({b})
+  }
+
+  toggleVideo() {
+    this.setState({
+      formats: {
+        ...this.state.formats,
+        video: !this.state.formats.video,
+      }
+    })
+  }
+
+  toggleBanner() {
+    this.setState({
+      formats: {
+        ...this.state.formats,
+        banner: !this.state.formats.banner,
+      }
+    })
+  }
+
+  toggleDesktop() {
+    this.setState({
+      platforms: {
+        ...this.state.platforms,
+        desktop: !this.state.platforms.desktop,
+      }
+    })
+  }
+
+  toggleMobile() {
+    this.setState({
+      platforms: {
+        ...this.state.platforms,
+        mobile: !this.state.platforms.mobile,
+      }
+    })
+  }
+
+  toggleApp() {
+    this.setState({
+      platforms: {
+        ...this.state.platforms,
+        app: !this.state.platforms.app,
+      }
+    })
+  }
+
+  loadCompare() {
+    // Only selected platforms
+    let platforms = ['desktop', 'mobile', 'app'].filter((platform) => this.state.platforms[platform]);
+    let formats = ['video', 'banner'].filter((format) => this.state.formats[format]);
+
+    fetch(`http://localhost:8000/compare?a=${this.state.a}&b=${this.state.b}&platforms${platforms.join(',')}&formats=${formats.join(',')}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((payload) => payload.data)
+    .then((compareResults) => this.setState({compareResults}))
+  }
+
   render() {
     const stats = DATA.data;
 
@@ -60,13 +158,13 @@ class App extends Component {
 
           <Flex>
             <Box sm={4}><Flex justify="space-between">
-              <PillBar options={["Worldwide", "Asia", "Europe", "North America"]} current="Europe" />
+              <PillBar onClick={this.setA} options={["Worldwide", "Asia", "Europe", "North America"]} current={this.state.a} />
             </Flex></Box>
             <Box sm={4}>
               <p style={{textAlign: "center", fontSize: 30}}><b>VS</b></p>
             </Box>
             <Box sm={4}><Flex justify="space-between">
-              <PillBar options={["Worldwide", "Asia", "Europe", "North America"]} current="Asia" />
+              <PillBar onClick={this.setB} options={["Worldwide", "Asia", "Europe", "North America"]} current={this.state.b} />
             </Flex></Box>
           </Flex>
           <br/>
@@ -74,16 +172,21 @@ class App extends Component {
             <Box sm={4}><Flex justify="space-between">
               <Checkbox
                 label="App"
-                name="checkbox_1"
+                name="check_app"
+                checked={this.state.platforms.app}
+                onClick={this.toggleApp}
+                theme="success"
               />
               <Checkbox
-                checked
+                checked={this.state.platforms.desktop}
+                onClick={this.toggleDesktop}
                 label="Desktop"
                 name="checkbox_1"
                 theme="success"
               />
               <Checkbox
-                checked
+                checked={this.state.platforms.mobile}
+                onClick={this.toggleMobile}
                 label="Mobile"
                 name="checkbox_1"
                 theme="success"
@@ -96,9 +199,13 @@ class App extends Component {
               <Checkbox
                 label="Video"
                 name="checkbox_1"
+                checked={this.state.formats.video}
+                onClick={this.toggleVideo}
+                theme="success"
               />
               <Checkbox
-                checked
+                checked={this.state.formats.banner}
+                onClick={this.toggleBanner}
                 label="Banner"
                 name="checkbox_1"
                 theme="success"
