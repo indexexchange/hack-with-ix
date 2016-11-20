@@ -27,7 +27,7 @@ module.exports = {
                 && data.timestamp < now;
         });
     },
-
+    
     getAdsData: function getAdsData(dc, from, to) {
         var now = Date.now() - LAG;
 
