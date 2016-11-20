@@ -42,9 +42,11 @@ function Datacenters(props) {
     return <p>Loading ...</p>;
   }
 
-  return <Flex>
+  return <Flex flexAuto justify="space-around">
     {dcs.map((datacenter) => {
-      return <DatacenterOverview dc={datacenter.name} servers={datacenter.servers} />
+      return <Box sm={4}>
+        <DatacenterOverview dc={datacenter.name} servers={datacenter.servers} />
+      </Box>
     })}
   </Flex>
 }
